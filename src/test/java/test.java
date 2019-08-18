@@ -5,6 +5,7 @@ import Learn.LXY;
 import Learn.Training;
 import Play.Harem;
 import Play.Princess;
+import Play.PrincessJPARepository;
 import Play.PrincessRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,12 +30,12 @@ public class test {
 //        System.setProperty("ConfessionSuccess", "true");
 //    }
     @Autowired
-    PrincessRepository princessRepository;
+    PrincessJPARepository princessJPARepository;
 
     @Test
     public void Test() {
 //        harem.addGirl(new Princess("AYM", "Ice and fire|Uniform temptation"));
-        princessRepository.addGirl(new Princess("WZH", "WhipTrain"));
+        princessJPARepository.addGirl(new Princess("WZH3", "WhipTrain"));
 //        System.out.println(princessRepository.findOne(2).toString());
 
     }

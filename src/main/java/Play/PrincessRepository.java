@@ -16,7 +16,7 @@ import java.util.Map;
  * @version 1.0
  * @date 2019/8/17 14:34
  */
-@Repository
+//@Repository
 public class PrincessRepository {
     //    private JdbcOperations jdbcOperations;
 //
