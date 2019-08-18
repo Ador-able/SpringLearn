@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:list id="hobby">
+        <value>Ice and fire</value>
+        <value>Uniform temptation</value>
+    </util:list>
+    <bean id="aym" class="Learn.AYM" c:hobby-ref="hobby" >
+        <property name="act" value="Do Make Love"/>
+        <constructor-arg value="AYM"/>
+    </bean>
+
+    <bean id="XXX" class="Learn.XXX" scope="prototype">
+        <constructor-arg value="XXX Do Make Love"/>
+    </bean>
+
+</beans>

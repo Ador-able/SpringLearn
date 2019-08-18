@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+    <bean class="Config.GirlConfig"/>
+    <bean id="lxy" class="Learn.LXY" p:girl-ref="aym"/>
+    <bean id="tt" class="Learn.TT"></bean>
+    <aop:config>
+        <aop:aspect ref="tt">
+            <aop:pointcut id="doXXX" expression="execution(* Learn.Girl.doXXX(..)) and bean(aym) and args(location)"/>
+<!--            <aop:before pointcut-ref="doXXX" method="BeforeDo"/>-->
+<!--            <aop:after pointcut-ref="doXXX" method="AfterDo"/>-->
+            <aop:around method="Enjory" pointcut-ref="doXXX"/>
+            <aop:declare-parents types-matching="Learn.Girl+" implement-interface="Learn.Training" default-impl="Learn.WhipTraining"/>
+        </aop:aspect>
+    </aop:config>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+<!--    <jdbc:embedded-database id="dataSource" type="H2">-->
+<!--        <jdbc:script location="classpath:init.sql"></jdbc:script>-->
+<!--    </jdbc:embedded-database>-->
+
+<!--    <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource"-->
+<!--          p:driverClassName="com.mysql.cj.jdbc.Driver"-->
+<!--          p:url="jdbc:mysql://localhost:3306/"-->
+<!--          p:username="root"-->
+<!--          p:password="root" />-->
+</beans>
+        <!--        <constructor-arg ref="aym"></constructor-arg>-->
